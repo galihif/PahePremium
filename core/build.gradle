@@ -37,4 +37,8 @@ dependencies {
     //coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    api "androidx.activity:activity-ktx:1.5.1"
+    api "androidx.fragment:fragment-ktx:1.5.2"
 }
