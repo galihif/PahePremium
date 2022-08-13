@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/_4sdp"
+    android:paddingBottom="@dimen/_4sdp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_6sdp">
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_210sdp"
+            android:src="@drawable/sample_poster" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/item_title_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_2sdp"
+        android:maxWidth="@dimen/_140sdp"
+        android:text="Spiderman: No Way Home" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:drawableLeft="@drawable/ic_star_12"
+        android:drawablePadding="@dimen/_4sdp"
+        style="@style/item_vote_big"
+        android:text="9.1/10 IMDb"/>
+
+</LinearLayout>
