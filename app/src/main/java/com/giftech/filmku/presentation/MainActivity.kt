@@ -9,7 +9,6 @@ import com.giftech.filmku.R
 import com.giftech.filmku.core.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel:MainViewModel by viewModels()
