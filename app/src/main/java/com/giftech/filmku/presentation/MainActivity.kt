@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                 is Resource.Loading -> Log.d("GALIH","loading")
                 is Resource.Success -> {
                     it.data.forEach{
-                        Log.d("GALIH", it.id.toString())
+                        Log.d("GALIH", it.description)
                     }
                 }
             }
