@@ -1,11 +1,14 @@
 package com.giftech.filmku.core.data
 
 import com.giftech.filmku.core.data.remote.RemoteDataSource
+import com.giftech.filmku.core.data.remote.dto.toMovie
 import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.core.domain.repository.FilmRepository
 import com.giftech.filmku.core.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import retrofit2.HttpException
+import java.io.IOException
 import javax.inject.Inject
 
 class FilmRepositoryImpl @Inject constructor(
@@ -17,8 +20,15 @@ class FilmRepositoryImpl @Inject constructor(
 
     override fun getNowPlaying(): Flow<Resource<List<Movie>>> {
         return flow {
-            val res = remote.getNowPlaying()
-            emit(Resource.Success(res))
+            emit(Resource.Loading)
+            try {
+                val listMovie = remote.getNowPlaying().results.map { it.toMovie() }
+                emit(Resource.Success(listMovie))
+            }catch (e: HttpException){
+                emit(Resource.Error(e.message() ?: "Unexpected error occured"))
+            }catch (e: IOException){
+                emit(Resource.Error(e.message ?: "Unexpected error occured"))
+            }
         }
     }
 }
