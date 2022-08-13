@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.FilmKu" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue_200</item>
+        <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/blue_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue_200</item>
+        <item name="colorSecondary">@color/blue_500</item>
         <item name="colorSecondaryVariant">@color/blue_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
