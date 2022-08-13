@@ -1,4 +1,4 @@
-package com.giftech.filmku.presentation
+package com.giftech.filmku.presentation.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
