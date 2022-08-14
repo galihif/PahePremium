@@ -12,6 +12,6 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val useCase: FilmUseCase
 ): ViewModel() {
-    val msg = useCase.getTest()
     val nowPlaying = useCase.getNowPlaying().asLiveData()
+    val popular = useCase.getPopular().asLiveData()
 }

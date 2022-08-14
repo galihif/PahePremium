@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/drawable-v25/ic_watchlist_active.xml" value="0.1" />
+        <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/drawable/box_blue_8dp.xml" value="0.131" />
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/drawable/box_outline_grey_8dp.xml" value="0.131" />
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/drawable/home_selector.xml" value="0.131" />
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/drawable/ic_home_active.xml" value="0.131" />
@@ -19,8 +20,10 @@
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/font/mulish_semibold.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/layout/activity_main2.xml" value="0.14130434782608695" />
-        <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/layout/fragment_home.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/layout/fragment_home.xml" value="0.1414324569356301" />
+        <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/layout/item_movie.xml" value="0.22" />
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/layout/item_movie_big.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/layout/layout_home_nowplaying.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/galih/OneDrive/Documents/Documents/A. Software Engineering/Android Development/Projects/FilmKu/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
       </map>
     </option>

@@ -30,5 +30,24 @@
         <item name="android:textColor">@color/grey_500</item>
     </style>
 
+    <style name="see_more" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/mulish_regular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textColor">@color/grey_500</item>
+        <item name="android:background">@drawable/box_outline_grey_8dp</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/_8sdp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">@dimen/_4sdp</item>
+    </style>
+    <style name="genre" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/mulish_regular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textColor">@color/blue_300</item>
+        <item name="android:background">@drawable/box_blue_8dp</item>
+        <item name="background">@drawable/box_blue_8dp</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/_8sdp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">@dimen/_4sdp</item>
+    </style>
+
+
 
 </resources>
