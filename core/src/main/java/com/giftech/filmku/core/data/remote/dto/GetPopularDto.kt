@@ -4,7 +4,7 @@ package com.giftech.filmku.core.data.remote.dto
 import com.giftech.filmku.core.domain.model.Movie
 import com.google.gson.annotations.SerializedName
 
-data class GetNowPlayingDto(
+data class GetPopularDto(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
@@ -14,7 +14,6 @@ data class GetNowPlayingDto(
     @SerializedName("total_results")
     val totalResults: Int
 ) {
-
     data class Result(
         @SerializedName("adult")
         val adult: Boolean,
@@ -47,7 +46,7 @@ data class GetNowPlayingDto(
     )
 }
 
-fun GetNowPlayingDto.Result.toMovie():Movie =
+fun GetPopularDto.Result.toMovie(): Movie =
     Movie(
         id = id,
         title = title,

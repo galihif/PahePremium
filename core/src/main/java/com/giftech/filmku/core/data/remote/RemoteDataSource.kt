@@ -24,12 +24,27 @@ class RemoteDataSource @Inject constructor(
         flow {
             emit(Resource.Loading)
             try {
-                val listMovie = api.getNowPlaying().results.map { it.toMovie() }
-                emit(Resource.Success(listMovie))
+                val res = api.getNowPlaying().results.map { it.toMovie() }
+                emit(Resource.Success(res))
             }catch (e: HttpException){
                 emit(Resource.Error(e.message() ?: "Unexpected error occured"))
             }catch (e: IOException){
                 emit(Resource.Error(e.message ?: "Unexpected error occured"))
             }
         }.flowOn(Dispatchers.IO)
+
+    fun getPopular():Flow<Resource<List<Movie>>> =
+        flow {
+            emit(Resource.Loading)
+            try {
+                val res = api.getPopular().results.map { it.toMovie() }
+                emit(Resource.Success(res))
+            }catch (e: HttpException){
+                emit(Resource.Error(e.message() ?: "Unexpected error occured"))
+            }catch (e: IOException){
+                emit(Resource.Error(e.message ?: "Unexpected error occured"))
+            }
+        }.flowOn(Dispatchers.IO)
+
+
 }

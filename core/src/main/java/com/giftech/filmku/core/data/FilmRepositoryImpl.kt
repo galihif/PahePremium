@@ -19,4 +19,5 @@ class FilmRepositoryImpl @Inject constructor(
     }
 
     override fun getNowPlaying(): Flow<Resource<List<Movie>>> = remote.getNowPlaying()
+    override fun getPopular(): Flow<Resource<List<Movie>>> = remote.getPopular()
 }
