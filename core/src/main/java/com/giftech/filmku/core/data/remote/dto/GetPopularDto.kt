@@ -47,8 +47,8 @@ data class GetPopularDto(
     )
 }
 
-fun GetPopularDto.Result.toMovie(): Movie =
-    Movie(
+fun GetPopularDto.Result.toMovie():Movie{
+    return Movie(
         id = id,
         title = title,
         description = overview,
@@ -56,3 +56,4 @@ fun GetPopularDto.Result.toMovie(): Movie =
         vote = voteAverage,
         genres = genreIds.map { DataUtils.getGenreName(it) }
     )
+}

@@ -8,5 +8,6 @@ data class Movie(
     var backdrop:String="",
     val vote:Double,
     var language:String="",
-    val genres:List<String>
+    val genres:List<String>,
+    var length:Int = 0
 )
