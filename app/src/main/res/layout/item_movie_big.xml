@@ -39,8 +39,6 @@
         android:paddingHorizontal="@dimen/_4sdp"
         android:layout_marginHorizontal="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:drawableLeft="@drawable/ic_star_12"
-        android:drawablePadding="@dimen/_4sdp"
         style="@style/item_vote_big"
         android:text="9.1/10 IMDb"/>
 

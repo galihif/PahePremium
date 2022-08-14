@@ -24,10 +24,18 @@
         <item name="android:textSize">@dimen/_14ssp</item>
         <item name="android:textColor">?colorPrimary</item>
     </style>
+    <style name="title_big" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/mulish_bold</item>
+        <item name="android:textSize">@dimen/_20ssp</item>
+        <item name="android:textColor">?colorPrimary</item>
+    </style>
+
     <style name="item_vote_big" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/mulish_medium</item>
         <item name="android:textSize">@dimen/_12ssp</item>
         <item name="android:textColor">@color/grey_500</item>
+        <item name="drawableLeftCompat">@drawable/ic_star_12</item>
+        <item name="android:drawablePadding">@dimen/_4sdp</item>
     </style>
 
     <style name="see_more" parent="Widget.AppCompat.TextView">
@@ -38,6 +46,7 @@
         <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/_8sdp</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/_4sdp</item>
     </style>
+
     <style name="genre" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/mulish_regular</item>
         <item name="android:textSize">@dimen/_10ssp</item>

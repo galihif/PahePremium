@@ -4,4 +4,10 @@
     <string name="title_home">Home</string>
     <string name="title_search">Search</string>
     <string name="title_watchlist">Watchlist</string>
+    <string name="sample_title">Spiderman: No Way Home</string>
+    <string name="sample_desc">With Spider-Man\'s identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.</string>
+    <string name="description">Description</string>
+    <string name="rating">Rating</string>
+    <string name="language">Language</string>
+    <string name="length">Length</string>
 </resources>
