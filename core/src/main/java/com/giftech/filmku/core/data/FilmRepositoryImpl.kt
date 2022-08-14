@@ -18,17 +18,5 @@ class FilmRepositoryImpl @Inject constructor(
         return remote.getTest()
     }
 
-    override fun getNowPlaying(): Flow<Resource<List<Movie>>> {
-        return flow {
-            emit(Resource.Loading)
-            try {
-                val listMovie = remote.getNowPlaying().results.map { it.toMovie() }
-                emit(Resource.Success(listMovie))
-            }catch (e: HttpException){
-                emit(Resource.Error(e.message() ?: "Unexpected error occured"))
-            }catch (e: IOException){
-                emit(Resource.Error(e.message ?: "Unexpected error occured"))
-            }
-        }
-    }
+    override fun getNowPlaying(): Flow<Resource<List<Movie>>> = remote.getNowPlaying()
 }
