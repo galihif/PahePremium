@@ -2,6 +2,7 @@ package com.giftech.filmku.core.data.remote.dto
 
 
 import com.giftech.filmku.core.domain.model.Movie
+import com.giftech.filmku.core.utils.DataUtils
 import com.google.gson.annotations.SerializedName
 
 data class GetPopularDto(
@@ -53,5 +54,5 @@ fun GetPopularDto.Result.toMovie(): Movie =
         description = overview,
         poster = posterPath,
         vote = voteAverage,
-        genres = genreIds.map { it.toString() }
+        genres = genreIds.map { DataUtils.getGenreName(it) }
     )
