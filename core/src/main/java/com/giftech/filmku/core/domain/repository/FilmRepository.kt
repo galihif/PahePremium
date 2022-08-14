@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface FilmRepository {
     fun getTest():String
     fun getNowPlaying(): Flow<Resource<List<Movie>>>
+    fun getPopular():Flow<Resource<List<Movie>>>
 }
