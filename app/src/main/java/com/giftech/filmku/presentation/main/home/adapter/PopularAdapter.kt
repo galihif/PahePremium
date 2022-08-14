@@ -21,12 +21,13 @@ class PopularAdapter: ListAdapter<Movie, PopularAdapter.PopularViewHolder>(DIFF_
                 ivPoster.loadMovieImage(item.poster)
                 tvTitle.text = item.title
                 tvVote.text = AppUtils.getVoteFormat(item.vote)
+
                 item.genres.forEach {
                     val tvGenre = TextView(itemView.context)
-                    tvGenre.text = "Genre $it"
+                    tvGenre.text = it
                     TextViewCompat.setTextAppearance(tvGenre, R.style.genre)
                     tvGenre.setBackgroundResource(R.drawable.box_blue_8dp)
-                    tvGenre.setPadding(10,6,10,6)
+                    tvGenre.setPadding(16,6,16,6)
                     binding.containerGenre.addView(tvGenre)
                 }
             }
