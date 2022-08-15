@@ -73,7 +73,11 @@ class HomeFragment : Fragment() {
         }
         binding.nowPlaying.rvNowPlaying.adapter = nowPlayingAdapter
 
-        popularAdapter = PopularAdapter()
+        popularAdapter = PopularAdapter{ movie ->
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(MOVIE_ID, movie.id)
+            startActivity(intent)
+        }
         binding.rvPopular.adapter = popularAdapter
     }
 

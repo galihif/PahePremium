@@ -14,7 +14,9 @@ import com.giftech.filmku.utils.AppUtils
 import com.giftech.filmku.utils.AppUtils.createGenreChip
 import com.giftech.filmku.utils.AppUtils.loadMovieImage
 
-class PopularAdapter: ListAdapter<Movie, PopularAdapter.PopularViewHolder>(DIFF_CALLBACK) {
+class PopularAdapter(
+    private val onClickItem:(Movie) -> Unit
+): ListAdapter<Movie, PopularAdapter.PopularViewHolder>(DIFF_CALLBACK) {
 
     inner class PopularViewHolder(private val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: Movie){
@@ -26,6 +28,8 @@ class PopularAdapter: ListAdapter<Movie, PopularAdapter.PopularViewHolder>(DIFF_
                 item.genres.forEach {
                     containerGenre.addView(createGenreChip(itemView.context, it))
                 }
+
+                itemView.setOnClickListener { onClickItem(item) }
             }
         }
     }
