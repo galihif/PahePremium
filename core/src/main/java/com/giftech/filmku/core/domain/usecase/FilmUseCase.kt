@@ -8,4 +8,5 @@ interface FilmUseCase {
     fun getTest():String
     fun getNowPlaying():Flow<Resource<List<Movie>>>
     fun getPopular():Flow<Resource<List<Movie>>>
+    fun getMovie(movieId:Int):Flow<Resource<Movie>>
 }

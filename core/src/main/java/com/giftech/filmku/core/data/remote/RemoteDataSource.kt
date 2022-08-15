@@ -46,5 +46,20 @@ class RemoteDataSource @Inject constructor(
             }
         }.flowOn(Dispatchers.IO)
 
+    fun getMovieDetail(movieId:Int):Flow<Resource<Movie>> =
+        flow {
+            emit(Resource.Loading)
+            try {
+                val res = api.getMovieDetail(movieId).toMovie()
+                emit(Resource.Success(res))
+            }catch (e: HttpException){
+                emit(Resource.Error(e.message() ?: "Unexpected error occured"))
+            }catch (e: IOException){
+                emit(Resource.Error(e.message ?: "Unexpected error occured"))
+            }
+        }.flowOn(Dispatchers.IO)
+
+
+
 
 }
