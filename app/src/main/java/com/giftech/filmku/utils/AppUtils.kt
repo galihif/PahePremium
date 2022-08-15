@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.core.widget.TextViewCompat
 import com.bumptech.glide.Glide
 import com.giftech.filmku.R
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import kotlin.math.min
 
 object AppUtils {
@@ -32,7 +34,11 @@ object AppUtils {
         return tvGenre
     }
 
-    fun getVoteFormat(vote:Double) = "$vote/10 IMDb"
+    fun getVoteFormat(vote:Double):String {
+        val df = DecimalFormat("#.#")
+        df.roundingMode = RoundingMode.FLOOR
+        return "${df.format(vote)}/10 IMDb"
+    }
 
     fun getTimeFormat(time:Int):String{
         val hour = time/60
