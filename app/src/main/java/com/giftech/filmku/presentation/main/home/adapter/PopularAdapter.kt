@@ -11,6 +11,7 @@ import com.giftech.filmku.R
 import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.databinding.ItemMovieBinding
 import com.giftech.filmku.utils.AppUtils
+import com.giftech.filmku.utils.AppUtils.createGenreChip
 import com.giftech.filmku.utils.AppUtils.loadMovieImage
 
 class PopularAdapter: ListAdapter<Movie, PopularAdapter.PopularViewHolder>(DIFF_CALLBACK) {
@@ -23,12 +24,7 @@ class PopularAdapter: ListAdapter<Movie, PopularAdapter.PopularViewHolder>(DIFF_
                 tvVote.text = AppUtils.getVoteFormat(item.vote)
 
                 item.genres.forEach {
-                    val tvGenre = TextView(itemView.context)
-                    tvGenre.text = it
-                    TextViewCompat.setTextAppearance(tvGenre, R.style.genre)
-                    tvGenre.setBackgroundResource(R.drawable.box_blue_8dp)
-                    tvGenre.setPadding(16,6,16,6)
-                    binding.containerGenre.addView(tvGenre)
+                    containerGenre.addView(createGenreChip(itemView.context, it))
                 }
             }
         }
