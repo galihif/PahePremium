@@ -137,6 +137,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:visibility="invisible"
                     android:fontFamily="@font/mulish_regular"
                     android:textColor="@color/grey_500"
                     android:text="@string/rating"/>
@@ -166,6 +167,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:visibility="invisible"
                     android:fontFamily="@font/mulish_semibold"
                     android:textColor="@color/black"
                     tools:text="PG-13"/>
