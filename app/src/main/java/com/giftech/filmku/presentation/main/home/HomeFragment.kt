@@ -1,5 +1,6 @@
 package com.giftech.filmku.presentation.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,8 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.giftech.filmku.core.utils.Resource
 import com.giftech.filmku.databinding.FragmentHomeBinding
+import com.giftech.filmku.presentation.detail.DetailActivity
 import com.giftech.filmku.presentation.main.home.adapter.NowPlayingAdapter
 import com.giftech.filmku.presentation.main.home.adapter.PopularAdapter
+import com.giftech.filmku.utils.Constant.MOVIE_ID
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 
@@ -64,7 +67,9 @@ class HomeFragment : Fragment() {
 
     private fun setupAdapter() {
         nowPlayingAdapter = NowPlayingAdapter { movie ->
-            Toast.makeText(activity, movie.title, Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(MOVIE_ID, movie.id)
+            startActivity(intent)
         }
         binding.nowPlaying.rvNowPlaying.adapter = nowPlayingAdapter
 
