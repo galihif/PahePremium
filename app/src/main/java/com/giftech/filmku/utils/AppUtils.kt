@@ -36,7 +36,7 @@ object AppUtils {
 
     fun getVoteFormat(vote:Double):String {
         val df = DecimalFormat("#.#")
-        df.roundingMode = RoundingMode.FLOOR
+        df.roundingMode = RoundingMode.HALF_EVEN
         return "${df.format(vote)}/10 IMDb"
     }
 
