@@ -16,4 +16,6 @@ class LocalDataSource @Inject constructor(
     }
 
     fun getAllSavedMovie():Flow<List<MovieEntity>> = dao.getAllSavedMovie()
+
+    suspend fun checkIsMovieSaved(movieId:Int):Boolean = dao.isMovieSaved(movieId)
 }

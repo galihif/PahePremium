@@ -26,5 +26,7 @@ class FilmRepositoryImpl @Inject constructor(
         local.insertMovie(domainToEntity(movie))
     }
 
+    override suspend fun isMovieInWatchList(movieId: Int):Boolean = local.checkIsMovieSaved(movieId)
+
     override fun getWatchlist(): Flow<List<Movie>> = local.getAllSavedMovie().map { entitiesToDomain(it) }
 }

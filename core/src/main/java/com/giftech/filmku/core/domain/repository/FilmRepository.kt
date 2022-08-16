@@ -6,9 +6,13 @@ import kotlinx.coroutines.flow.Flow
 
 interface FilmRepository {
     fun getTest():String
+
     fun getNowPlaying(): Flow<Resource<List<Movie>>>
     fun getPopular():Flow<Resource<List<Movie>>>
     fun getMovie(movieId:Int):Flow<Resource<Movie>>
+
     suspend fun addMovieToWatchList(movie: Movie)
+    suspend fun isMovieInWatchList(movieId:Int):Boolean
+
     fun getWatchlist():Flow<List<Movie>>
 }
