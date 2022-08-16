@@ -20,16 +20,36 @@ class DetailViewModel @Inject constructor(
     }
     val movie: LiveData<Resource<Movie>> = _movie
 
+    private val _isWatchList = MutableLiveData<Boolean>(false)
+    val isWatchList:LiveData<Boolean> = _isWatchList
+
+    private val _toastText = MutableLiveData<String>("")
+    val toastText:LiveData<String> = _toastText
+
+
     fun setTaskId(movieId: Int) {
         if (movieId == _movieId.value || movieId==0) {
             return
         }
         _movieId.value = movieId
+        checkIfMovieInWatchList(movieId)
+    }
+
+    private fun checkIfMovieInWatchList(movieId: Int) {
+        viewModelScope.launch {
+            _isWatchList.value = useCase.isMovieInWatchList(movieId)
+        }
     }
 
     fun saveMovie(movie: Movie){
         viewModelScope.launch {
-            useCase.addMovieToWatchList(movie)
+            if(_isWatchList.value!!){
+                _toastText.value = "Sudah ditambahkan lur"
+            }else{
+                useCase.addMovieToWatchList(movie)
+                _toastText.value = "Movie ditambahkan"
+                _isWatchList.value = true
+            }
         }
     }
 

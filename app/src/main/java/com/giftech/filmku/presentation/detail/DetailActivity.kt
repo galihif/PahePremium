@@ -30,6 +30,22 @@ class DetailActivity : AppCompatActivity() {
         setMovieId()
         getMovie()
         setButtonClick()
+
+        viewModel.toastText.observe(this){
+            if(it.isNotEmpty()){
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            }
+        }
+        viewModel.isWatchList.observe(this){
+            setBtnSaveView(it)
+        }
+    }
+
+    private fun setBtnSaveView(isWatchList: Boolean) {
+        binding.btnSave.setImageResource(
+            if (isWatchList) R.drawable.ic_save_filled
+            else R.drawable.ic_save
+        )
     }
 
     private fun setButtonClick() {
