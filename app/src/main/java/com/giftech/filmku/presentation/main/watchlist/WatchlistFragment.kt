@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.giftech.filmku.databinding.FragmentWatchlistBinding
+import com.giftech.filmku.presentation.main.watchlist.adapter.WatchListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +20,8 @@ class WatchlistFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var watchListAdapter: WatchListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,8 +38,22 @@ class WatchlistFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if(activity != null){
-            binding.textNotifications.text = viewModel.msg + "NOTIF"
+            setupAdapter()
+            getData()
         }
+    }
+
+    private fun getData() {
+        viewModel.watchlist.observe(viewLifecycleOwner){
+            watchListAdapter.submitList(it)
+        }
+    }
+
+    private fun setupAdapter() {
+        watchListAdapter = WatchListAdapter { movie ->
+
+        }
+        binding.rvWatchlist.adapter = watchListAdapter
     }
 
 

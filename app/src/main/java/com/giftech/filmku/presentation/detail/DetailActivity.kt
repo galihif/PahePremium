@@ -22,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding:ActivityDetailBinding
     private val viewModel:DetailViewModel by viewModels()
+    private lateinit var movie: Movie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -34,6 +35,7 @@ class DetailActivity : AppCompatActivity() {
     private fun setButtonClick() {
         with(binding){
             btnBack.setOnClickListener { onBackPressed() }
+            btnSave.setOnClickListener { viewModel.saveMovie(movie) }
         }
     }
 
@@ -47,6 +49,7 @@ class DetailActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     showLoading(false)
                     populateView(it.data)
+                    movie = it.data
                 }
             }
         }

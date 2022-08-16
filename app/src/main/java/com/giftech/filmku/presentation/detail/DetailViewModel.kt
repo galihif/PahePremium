@@ -5,6 +5,7 @@ import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.core.domain.usecase.FilmUseCase
 import com.giftech.filmku.core.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,6 +25,12 @@ class DetailViewModel @Inject constructor(
             return
         }
         _movieId.value = movieId
+    }
+
+    fun saveMovie(movie: Movie){
+        viewModelScope.launch {
+            useCase.addMovieToWatchList(movie)
+        }
     }
 
 
