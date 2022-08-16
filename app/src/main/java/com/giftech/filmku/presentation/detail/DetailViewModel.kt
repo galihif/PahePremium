@@ -44,14 +44,17 @@ class DetailViewModel @Inject constructor(
     fun saveMovie(movie: Movie){
         viewModelScope.launch {
             if(_isWatchList.value!!){
-                _toastText.value = "Sudah ditambahkan lur"
+                useCase.removeMovieFromWatchlist(movie.id)
+                _toastText.value = "Movie removed from watchlist"
+                _isWatchList.value = false
             }else{
                 useCase.addMovieToWatchList(movie)
-                _toastText.value = "Movie ditambahkan"
+                _toastText.value = "Movie added to watchlist"
                 _isWatchList.value = true
             }
         }
     }
+
 
 
 }
