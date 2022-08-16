@@ -13,6 +13,7 @@ interface FilmUseCase {
 
     suspend fun addMovieToWatchList(movie: Movie)
     suspend fun isMovieInWatchList(movieId:Int):Boolean
+    suspend fun removeMovieFromWatchlist(movieId: Int)
 
     fun getWatchlist():Flow<List<Movie>>
 }

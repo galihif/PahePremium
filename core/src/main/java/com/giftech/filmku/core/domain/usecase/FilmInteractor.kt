@@ -17,6 +17,7 @@ class FilmInteractor @Inject constructor(
 
     override suspend fun addMovieToWatchList(movie: Movie) = repository.addMovieToWatchList(movie)
     override suspend fun isMovieInWatchList(movieId: Int) = repository.isMovieInWatchList(movieId)
+    override suspend fun removeMovieFromWatchlist(movieId: Int) = repository.removeMovieFromWatchlist(movieId)
 
     override fun getWatchlist(): Flow<List<Movie>> =  repository.getWatchlist()
 }
