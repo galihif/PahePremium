@@ -9,4 +9,6 @@ interface FilmUseCase {
     fun getNowPlaying():Flow<Resource<List<Movie>>>
     fun getPopular():Flow<Resource<List<Movie>>>
     fun getMovie(movieId:Int):Flow<Resource<Movie>>
+    suspend fun addMovieToWatchList(movie: Movie)
+    fun getWatchlist():Flow<List<Movie>>
 }

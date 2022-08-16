@@ -13,4 +13,6 @@ class FilmInteractor @Inject constructor(
     override fun getNowPlaying(): Flow<Resource<List<Movie>>> = repository.getNowPlaying()
     override fun getPopular(): Flow<Resource<List<Movie>>> = repository.getPopular()
     override fun getMovie(movieId:Int): Flow<Resource<Movie>> = repository.getMovie(movieId)
+    override suspend fun addMovieToWatchList(movie: Movie) = repository.addMovieToWatchList(movie)
+    override fun getWatchlist(): Flow<List<Movie>> =  repository.getWatchlist()
 }
