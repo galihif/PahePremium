@@ -29,4 +29,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         navView.itemIconTintList = null
     }
+
+    // TODO: implement empty state on watchlist
+    // TODO: make watchlist as dynamic feature 
 }

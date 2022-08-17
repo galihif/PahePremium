@@ -35,7 +35,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if(activity != null){
-            binding.textDashboard.text = viewModel.msg + "DASHBOARD"
+            binding.textDashboard.text = viewModel.msg
         }
     }
 

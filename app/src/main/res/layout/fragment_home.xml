@@ -20,11 +20,25 @@
 <!--            style="@style/Title1"-->
 <!--            android:text="FilmKu"/>-->
 
-        <ImageView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
             android:layout_marginVertical="@dimen/_16sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_24sdp"
-            android:src="@drawable/logo"/>
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:src="@drawable/logo"/>
+            <ImageView
+                android:id="@+id/btn_watchlist"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_save_filled"/>
+        </LinearLayout>
+
 
         <include
             android:id="@+id/now_playing"

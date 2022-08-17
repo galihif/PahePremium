@@ -11,9 +11,4 @@
         android:icon="@drawable/search_selector"
         android:title="@string/title_search" />
 
-    <item
-        android:id="@+id/navigation_watchlist"
-        android:icon="@drawable/watchlist_selector"
-        android:title="@string/title_watchlist" />
-
 </menu>

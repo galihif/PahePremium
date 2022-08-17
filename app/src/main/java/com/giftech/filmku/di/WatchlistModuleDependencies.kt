@@ -7,7 +7,6 @@ import dagger.hilt.components.SingletonComponent
 
 @EntryPoint
 @InstallIn(SingletonComponent::class)
-interface MapsModuleDependencies {
-
-    fun useCase():FilmUseCase
+interface WatchlistModuleDependencies {
+    fun useCase(): FilmUseCase
 }

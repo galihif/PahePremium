@@ -1,6 +1,7 @@
 package com.giftech.filmku.presentation.main.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -45,6 +46,14 @@ class HomeFragment : Fragment() {
         if(activity != null){
             setupAdapter()
             getData()
+            setButtonClick()
+        }
+    }
+
+    private fun setButtonClick() {
+        binding.btnWatchlist.setOnClickListener {
+            val uri = Uri.parse("filmku://watchlist")
+            startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
     }
 

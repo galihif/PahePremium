@@ -18,7 +18,7 @@ import javax.inject.Inject
 class RemoteDataSource @Inject constructor(
     private val api:ApiService
 ) {
-    fun getTest() = "Constants.API_KEY"
+    fun getTest() = "Coming soon"
 
     fun getNowPlaying():Flow<Resource<List<Movie>>> =
         flow {
