@@ -3,6 +3,7 @@ package com.giftech.filmku.watchlist
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.giftech.filmku.di.WatchlistModuleDependencies
 import com.giftech.filmku.presentation.detail.DetailActivity
@@ -27,6 +28,22 @@ class WatchlistActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWatchlistBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupHilt()
+        setupToolbar()
+        setupAdapter()
+        getData()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.toolbar)
+        if (supportActionBar != null){
+            supportActionBar!!.title = "Watchlist"
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+            supportActionBar!!.setDisplayShowHomeEnabled(true);
+        }
+    }
+
+    private fun setupHilt() {
         DaggerWatchlistComponent.builder()
             .context(this)
             .appDependencies(
@@ -37,14 +54,18 @@ class WatchlistActivity : AppCompatActivity() {
             )
             .build()
             .inject(this)
-        setupAdapter()
-        getData()
     }
 
     private fun getData() {
         viewModel.watchlist.observe(this){
             watchListAdapter.submitList(it)
+            showEmpty(it.isEmpty())
         }
+    }
+
+    private fun showEmpty(empty: Boolean) {
+        binding.empty.visibility = if (empty) View.VISIBLE else View.GONE
+        binding.emptyMessage.visibility = if (empty) View.VISIBLE else View.GONE
     }
 
     private fun setupAdapter() {
@@ -54,6 +75,11 @@ class WatchlistActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.rvWatchlist.adapter = watchListAdapter
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 }

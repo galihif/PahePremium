@@ -13,4 +13,7 @@ dependencies{
     //Sdp Scalable Size Screen
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:5.0.1"
 }
