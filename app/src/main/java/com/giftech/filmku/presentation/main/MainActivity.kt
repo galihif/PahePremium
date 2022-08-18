@@ -31,5 +31,4 @@ class MainActivity : AppCompatActivity() {
     }
 
     // TODO: implement empty state on watchlist
-    // TODO: make watchlist as dynamic feature 
 }

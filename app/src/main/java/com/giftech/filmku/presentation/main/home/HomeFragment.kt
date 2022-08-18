@@ -15,6 +15,7 @@ import com.giftech.filmku.databinding.FragmentHomeBinding
 import com.giftech.filmku.presentation.detail.DetailActivity
 import com.giftech.filmku.presentation.main.home.adapter.NowPlayingAdapter
 import com.giftech.filmku.presentation.main.home.adapter.PopularAdapter
+import com.giftech.filmku.utils.Category
 import com.giftech.filmku.utils.Constant.MOVIE_ID
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
@@ -60,16 +61,37 @@ class HomeFragment : Fragment() {
     private fun getData() {
         viewModel.nowPlaying.observe(viewLifecycleOwner){
             when(it){
-                is Resource.Error -> Log.d("GALIH", it.error)
-                is Resource.Loading -> Log.d("GALIH", "loading")
-                is Resource.Success -> nowPlayingAdapter.submitList(it.data)
+                is Resource.Error -> {
+                    showLoading(false,Category.NOW_PLAYING)
+                }
+                is Resource.Loading -> showLoading(true, Category.NOW_PLAYING)
+                is Resource.Success -> {
+                    showLoading(false,Category.NOW_PLAYING)
+                    nowPlayingAdapter.submitList(it.data)
+                }
             }
         }
         viewModel.popular.observe(viewLifecycleOwner){
             when(it){
-                is Resource.Error -> Log.d("GALIH", it.error)
-                is Resource.Loading -> Log.d("GALIH", "loading")
-                is Resource.Success -> popularAdapter.submitList(it.data)
+                is Resource.Error -> {
+                    showLoading(false,Category.POPULAR)
+                }
+                is Resource.Loading -> showLoading(true, Category.POPULAR)
+                is Resource.Success -> {
+                    showLoading(false,Category.POPULAR)
+                    popularAdapter.submitList(it.data)
+                }
+            }
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean, category: Category) {
+        when(category){
+            Category.NOW_PLAYING -> {
+                binding.nowPlayingLoad.root.visibility = if (isLoading) View.VISIBLE else View.GONE
+            }
+            Category.POPULAR -> {
+                binding.popularLoad.visibility = if (isLoading) View.VISIBLE else View.GONE
             }
         }
     }

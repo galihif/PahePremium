@@ -6,26 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/_24sdp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Title1"
-            android:layout_alignParentLeft="true"
-            android:text="Now Showing"/>
-        <TextView
-            android:id="@+id/btn_seemore"
-            style="@style/see_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="See more"
-            android:layout_gravity="center_vertical"/>
-    </RelativeLayout>
-
     <HorizontalScrollView
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_width="match_parent"
