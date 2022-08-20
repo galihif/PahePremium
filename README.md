@@ -1,2 +1,2 @@
 # PahePremium
-Pahe Premium Plus is application to show information about the latest and popular movies around the world
+Pahe Premium Plus is a clean architecture android app using MVVM and modern android development
