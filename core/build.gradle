@@ -3,11 +3,8 @@ plugins {
     id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
-
-def localPropertiesFile = rootProject.file("local.properties")
-def localProperties = new Properties()
-localProperties.load(new FileInputStream(localPropertiesFile))
 
 android {
     compileSdk 32
@@ -15,9 +12,6 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 32
-
-        buildConfigField("String", "BASE_URL", localProperties['BASE_URL'])
-        buildConfigField("String", "API_KEY", localProperties['API_KEY'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
