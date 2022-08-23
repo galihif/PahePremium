@@ -30,10 +30,5 @@ jobs:
       run: ./gradlew test
       
     - name: Build Project
-      run: ./gradlew assemble
+      run: ./gradlew assembleDebug
       
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.0
-      with:
-        name: app
-        path: app/build/outputs/apk/debug/
