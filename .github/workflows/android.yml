@@ -25,14 +25,6 @@ jobs:
       
     - name: Build with Gradle
       run: ./gradlew build
-        
-    - name: Test Secrets
-      run: |
-        echo $BASE_URL
-        echo $API_KEY
-      env:
-        BASE_URL: ${{ secrets.BASE_URL }}
-        API_KEY: ${{ secrets.API_KEY }}
       
     - name: Run tests
       run: ./gradlew test
