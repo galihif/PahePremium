@@ -25,12 +25,21 @@ jobs:
       
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: Test Secrets
+      run: echo $BASE_URL
+      env:
+        BASE_URL: ${{ secrets.BASE_URL }}
+        API_KEY: ${{ secrets.API_KEY }}
       
     - name: Run tests
       run: ./gradlew test
       
     - name: Build Project
       run: ./gradlew assembleDebug
+      env:
+        BASE_URL: ${{ secrets.BASE_URL }}
+        API_KEY: ${{ secrets.API_KEY }}
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.0
