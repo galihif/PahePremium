@@ -26,14 +26,6 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Add Secrets Key
-      env:
-        BASE_URL: ${{secrets.BASE_URL}}
-        API_KEY: ${{secrets.API_KEY}}
-      run: |
-        echo BASE_URL=\"$BASE_URL\" > ./local.properties
-        echo API_KEY=\"$API_KEY\" > ./local.properties
-      
     - name: Run tests
       run: ./gradlew test
       
