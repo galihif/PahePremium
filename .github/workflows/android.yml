@@ -24,8 +24,8 @@ jobs:
         BASE_URL: ${{secrets.BASE_URL}}
         API_KEY: ${{secrets.API_KEY}}
       run: |
-        echo BASE_URL=\"$BASE_URL\" > ./local.properties
-        echo API_KEY=\"$API_KEY\" > ./local.properties
+        echo BASE_URL=\"$BASE_URL\" > ./local.defaults.properties
+        echo API_KEY=\"$API_KEY\" > ./local.defaults.properties
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
