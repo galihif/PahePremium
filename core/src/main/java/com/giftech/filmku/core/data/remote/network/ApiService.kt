@@ -4,15 +4,16 @@ import com.giftech.filmku.core.data.remote.dto.GetMovieDetailDto
 import com.giftech.filmku.core.data.remote.dto.GetNowPlayingDto
 import com.giftech.filmku.core.data.remote.dto.GetPopularDto
 import com.giftech.filmku.core.utils.Constants
+import io.reactivex.Flowable
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
     @GET("movie/now_playing")
-    suspend fun getNowPlaying(
+    fun getNowPlaying(
         @Query("api_key") apiKey:String = Constants.API_KEY
-    ):GetNowPlayingDto
+    ):Flowable<GetNowPlayingDto>
 
     @GET("movie/popular")
     suspend fun getPopular(

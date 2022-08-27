@@ -11,5 +11,4 @@ class MainViewModel @Inject constructor(
     private val useCase: FilmUseCase
 ): ViewModel() {
     val message = useCase.getTest()
-    val nowPlaying = useCase.getNowPlaying().asLiveData()
 }

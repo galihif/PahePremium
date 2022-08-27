@@ -29,6 +29,5 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         navView.itemIconTintList = null
     }
-
-    // TODO: implement empty state on watchlist
+    // TODO: create github actions workflow
 }
