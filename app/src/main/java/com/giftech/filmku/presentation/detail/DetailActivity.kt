@@ -64,8 +64,10 @@ class DetailActivity : AppCompatActivity() {
                 is Resource.Loading -> showLoading(true)
                 is Resource.Success -> {
                     showLoading(false)
-                    populateView(it.data)
-                    movie = it.data
+                    if(it.data != null){
+                        populateView(it.data!!)
+                        movie = it.data!!
+                    }
                 }
             }
         }
