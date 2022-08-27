@@ -35,10 +35,10 @@ android {
     }
 }
 
-//secrets{
-//    propertiesFileName 'local.properties'
-//    defaultPropertiesFileName = 'local.defaults.properties'
-//}
+secrets{
+    propertiesFileName 'local.properties'
+    defaultPropertiesFileName = 'local.defaults.properties'
+}
 
 apply from: '../shared_dependencies.gradle'
 
