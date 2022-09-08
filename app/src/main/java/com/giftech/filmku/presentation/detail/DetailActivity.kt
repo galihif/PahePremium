@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.app.NavUtils
 import com.giftech.filmku.R
 import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.core.utils.Resource
@@ -98,6 +99,12 @@ class DetailActivity : AppCompatActivity() {
         if (intent.extras != null){
             val movieId = intent.extras?.getInt(MOVIE_ID)
             viewModel.setTaskId(movieId ?: 0)
+            onBackPressed()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        NavUtils.navigateUpFromSameTask(this)
     }
 }
