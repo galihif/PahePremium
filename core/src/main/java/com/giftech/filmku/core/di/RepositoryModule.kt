@@ -8,7 +8,6 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-@EntryPoint
 @Module(includes = [RemoteModule::class])
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {

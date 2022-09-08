@@ -103,8 +103,4 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        NavUtils.navigateUpFromSameTask(this)
-    }
 }
