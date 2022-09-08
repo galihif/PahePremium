@@ -61,5 +61,8 @@ dependencies {
     //RxLifecycle
     implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.5.1"
 
+    //LeakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
 
 }
