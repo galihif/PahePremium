@@ -99,7 +99,6 @@ class DetailActivity : AppCompatActivity() {
         if (intent.extras != null){
             val movieId = intent.extras?.getInt(MOVIE_ID)
             viewModel.setTaskId(movieId ?: 0)
-            onBackPressed()
         }
     }
 
