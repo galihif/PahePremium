@@ -65,4 +65,8 @@ dependencies {
     //RxJava
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
     implementation "androidx.room:room-rxjava2:2.4.3"
+
+    //SQLCipher
+    implementation "net.zetetic:android-database-sqlcipher:4.4.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.2.0"
 }
