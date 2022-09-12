@@ -1,19 +1,29 @@
 package com.giftech.filmku.presentation.main.search
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import android.util.Log
+import androidx.lifecycle.*
 import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.core.domain.usecase.FilmUseCase
 import com.giftech.filmku.core.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val useCase: FilmUseCase
 ): ViewModel() {
-    fun getSearchResult(query:String):LiveData<Resource<List<Movie>>> =
-        useCase.getSearchResult(query).asLiveData()
+
+    private val _keyword = MutableLiveData<String>()
+    val keyword:LiveData<String> = _keyword
+
+    val movieResults:LiveData<Resource<List<Movie>>> = _keyword.switchMap {
+        Log.d("galih", "movie switchmap: $it")
+        useCase.getSearchResult(it).asLiveData()
+    }
+
+    fun setKeyword(query:String){
+        _keyword.value = query
+    }
 }

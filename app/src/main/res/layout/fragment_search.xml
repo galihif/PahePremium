@@ -24,8 +24,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_result"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_8sdp"
         tools:listitem="@layout/item_movie"/>
 
