@@ -13,4 +13,5 @@
     <string name="watch_movie">Watch Movie</string>
     <string name="vote_format">0.0/10 IMDb</string>
     <string name="length_format">0h 0min</string>
+    <string name="search_movie">Search Movie</string>
 </resources>
