@@ -25,6 +25,7 @@ class PopularAdapter(
                 tvTitle.text = item.title
                 tvVote.text = AppUtils.getVoteFormat(item.vote)
 
+                containerGenre.removeAllViews()
                 item.genres.forEach {
                     containerGenre.addView(createGenreChip(itemView.context, it))
                 }

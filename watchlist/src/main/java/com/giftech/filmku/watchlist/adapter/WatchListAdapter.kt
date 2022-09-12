@@ -1,13 +1,10 @@
-package com.giftech.filmku.presentation.main.watchlist.adapter
+package com.giftech.filmku.watchlist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.widget.TextViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.giftech.filmku.R
 import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.databinding.ItemMovieBinding
 import com.giftech.filmku.utils.AppUtils
@@ -25,6 +22,7 @@ class WatchListAdapter(
                 tvTitle.text = item.title
                 tvVote.text = AppUtils.getVoteFormat(item.vote)
 
+                containerGenre.removeAllViews()
                 item.genres.forEach {
                     containerGenre.addView(createGenreChip(itemView.context, it))
                 }
