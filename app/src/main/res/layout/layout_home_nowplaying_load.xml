@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="@dimen/_8sdp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
-
-    <HorizontalScrollView
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none">
+    android:scrollbars="none">
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="wrap_content"
@@ -20,15 +15,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-                <include
-                    layout="@layout/item_movie_big_load"/>
-                <include
-                    layout="@layout/item_movie_big_load"/>
-                <include
-                    layout="@layout/item_movie_big_load"/>
+            <include
+                layout="@layout/item_movie_big_load"/>
+            <include
+                layout="@layout/item_movie_big_load"/>
+            <include
+                layout="@layout/item_movie_big_load"/>
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    </HorizontalScrollView>
-
-</LinearLayout>
+</HorizontalScrollView>
