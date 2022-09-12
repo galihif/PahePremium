@@ -18,6 +18,7 @@
         android:padding="@dimen/_8sdp"
         android:fontFamily="@font/mulish_regular"
         android:imeOptions="actionSearch"
+        android:inputType="text"
         android:drawableEnd="@drawable/ic_search_active"
         android:hint="@string/search_movie"/>
 
