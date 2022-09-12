@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
                     style="@style/item_vote_big"
-                    tools:text="9.1/10 IMDb"/>
+                    android:text="@string/vote_format"/>
 
                 <!-- Genres -->
                 <com.google.android.material.chip.ChipGroup
@@ -157,7 +157,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/mulish_semibold"
                         android:textColor="@color/black"
-                        tools:text="2h 28min"/>
+                        android:text="@string/length_format"/>
                     <TextView
                         android:id="@+id/tv_lang"
                         android:layout_width="0dp"
@@ -193,7 +193,7 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:fontFamily="@font/mulish_regular"
                     android:textColor="@color/grey_500"
-                    tools:text="@string/sample_desc"/>
+                    android:text="@string/sample_desc"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
