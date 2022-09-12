@@ -19,7 +19,6 @@ class SearchViewModel @Inject constructor(
     val keyword:LiveData<String> = _keyword
 
     val movieResults:LiveData<Resource<List<Movie>>> = _keyword.switchMap {
-        Log.d("galih", "movie switchmap: $it")
         useCase.getSearchResult(it).asLiveData()
     }
 
