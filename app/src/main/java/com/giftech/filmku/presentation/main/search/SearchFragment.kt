@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.giftech.filmku.R
 import com.giftech.filmku.core.utils.Resource
 import com.giftech.filmku.databinding.FragmentSearchBinding
 import com.giftech.filmku.presentation.detail.DetailActivity
@@ -44,17 +45,32 @@ class SearchFragment : Fragment() {
             setOnSearch()
             initAdapter()
             getMovieResult()
+            showKeyword()
+        }
+    }
+
+    private fun showKeyword() {
+        viewModel.keyword.observe(viewLifecycleOwner){
+            if (it!=""){
+                binding.tvShowResult.visibility = View.VISIBLE
+                binding.tvShowResult.text = activity?.getString(R.string.showing_result,it)
+            }else{
+                binding.tvShowResult.visibility = View.GONE
+            }
         }
     }
 
     private fun getMovieResult() {
         viewModel.movieResults.observe(viewLifecycleOwner){
             when(it){
-                is Resource.Error -> Toast.makeText(activity, it.error, Toast.LENGTH_SHORT).show()
-                Resource.Loading -> Log.d("galih", "getMovieResult: loading")
+                is Resource.Error -> {
+                    showLoading(false)
+                    Toast.makeText(activity, it.error, Toast.LENGTH_SHORT).show()
+                }
+                Resource.Loading -> showLoading(true)
                 is Resource.Success -> {
+                    showLoading(false)
                     searchResultAdapter.submitList(it.data)
-                    Log.d("galih", "getMovieResult: ${it.data.size}")
                 }
             }
         }
@@ -62,7 +78,9 @@ class SearchFragment : Fragment() {
 
     private fun initAdapter() {
         searchResultAdapter = SearchResultAdapter{movie ->
-
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(MOVIE_ID, movie.id)
+            startActivity(intent)
         }
         binding.rvResult.adapter = searchResultAdapter
     }
@@ -75,6 +93,11 @@ class SearchFragment : Fragment() {
             }
             true
         }
+    }
+
+    private fun showLoading(isLoading:Boolean){
+        binding.load.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.rvResult.visibility = if (isLoading) View.GONE else View.VISIBLE
     }
 
     private fun clearEditTextFocus() {

@@ -22,6 +22,40 @@
         android:drawableEnd="@drawable/ic_search_active"
         android:hint="@string/search_movie"/>
 
+    <TextView
+        android:id="@+id/tv_show_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:visibility="gone"
+        android:fontFamily="@font/mulish_medium"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:text="@string/showing_result"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/load"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:shimmer_auto_start="true"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include
+                layout="@layout/item_movie_load"/>
+            <include
+                layout="@layout/item_movie_load"/>
+            <include
+                layout="@layout/item_movie_load"/>
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_result"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
