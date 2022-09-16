@@ -20,7 +20,8 @@
         android:imeOptions="actionSearch"
         android:inputType="text"
         android:drawableEnd="@drawable/ic_search_active"
-        android:hint="@string/search_movie"/>
+        android:hint="@string/search_movie"
+        android:autofillHints="Don't Look Up" />
 
     <TextView
         android:id="@+id/tv_show_result"
@@ -33,6 +34,16 @@
         android:textSize="@dimen/_12ssp"
         android:textColor="@color/black"
         android:text="@string/showing_result"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_result"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        tools:listitem="@layout/item_movie"/>
+
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/load"
@@ -56,13 +67,11 @@
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_result"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_8sdp"
-        tools:listitem="@layout/item_movie"/>
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/empty"
+        android:visibility="gone"
+        layout="@layout/layout_empty"/>
 
 </LinearLayout>

@@ -15,4 +15,5 @@
     <string name="length_format">0h 0min</string>
     <string name="search_movie">Search Movie</string>
     <string name="showing_result">Showing Result for "%1$s"</string>
+    <string name="empty_search">We couldn\'t show the result. Please try with different keyword</string>
 </resources>
