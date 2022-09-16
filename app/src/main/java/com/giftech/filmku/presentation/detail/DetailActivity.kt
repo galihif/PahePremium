@@ -1,12 +1,10 @@
 package com.giftech.filmku.presentation.detail
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.app.NavUtils
+import androidx.appcompat.app.AppCompatActivity
 import com.giftech.filmku.R
 import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.core.utils.Resource
@@ -21,8 +19,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityDetailBinding
-    private val viewModel:DetailViewModel by viewModels()
+    private lateinit var binding: ActivityDetailBinding
+    private val viewModel: DetailViewModel by viewModels()
     private lateinit var movie: Movie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +30,12 @@ class DetailActivity : AppCompatActivity() {
         getMovie()
         setButtonClick()
 
-        viewModel.toastText.observe(this){
-            if(it.isNotEmpty()){
+        viewModel.toastText.observe(this) {
+            if (it.isNotEmpty()) {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
         }
-        viewModel.isWatchList.observe(this){
+        viewModel.isWatchList.observe(this) {
             setBtnSaveView(it)
         }
     }
@@ -50,15 +48,15 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setButtonClick() {
-        with(binding){
+        with(binding) {
             btnBack.setOnClickListener { onBackPressed() }
             btnSave.setOnClickListener { viewModel.saveMovie(movie) }
         }
     }
 
     private fun getMovie() {
-        viewModel.movie.observe(this){
-            when(it){
+        viewModel.movie.observe(this) {
+            when (it) {
                 is Resource.Error -> {
                     showLoading(false)
                 }
@@ -73,14 +71,14 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        with(binding){
-            ivPlay.visibility = if(isLoading) View.INVISIBLE else View.VISIBLE
-            tvWatch.visibility = if(isLoading) View.INVISIBLE else View.VISIBLE
+        with(binding) {
+            ivPlay.visibility = if (isLoading) View.INVISIBLE else View.VISIBLE
+            tvWatch.visibility = if (isLoading) View.INVISIBLE else View.VISIBLE
         }
     }
 
     private fun populateView(movie: Movie) {
-        with(binding){
+        with(binding) {
             ivBackdrop.loadMovieImage(movie.backdrop)
             ivBackdrop.applyFilter(ivBackdrop)
             tvTitle.text = movie.title
@@ -96,7 +94,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setMovieId() {
-        if (intent.extras != null){
+        if (intent.extras != null) {
             val movieId = intent.extras?.getInt(MOVIE_ID)
             viewModel.setTaskId(movieId ?: 0)
         }
