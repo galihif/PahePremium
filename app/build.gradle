@@ -41,7 +41,6 @@ android {
     lintOptions {
         disable 'NullSafeMutableLiveData'
     }
-    dynamicFeatures = [':watchlist']
 }
 
 apply from: '../shared_dependencies.gradle'

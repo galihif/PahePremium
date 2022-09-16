@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 rootProject.name = "FilmKu"
 include ':app'
 include ':core'
-include ':watchlist'

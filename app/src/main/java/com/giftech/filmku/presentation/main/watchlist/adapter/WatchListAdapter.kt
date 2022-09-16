@@ -1,4 +1,4 @@
-package com.giftech.filmku.watchlist.adapter
+package com.giftech.filmku.presentation.main.watchlist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

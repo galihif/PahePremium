@@ -6,23 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".presentation.main.watchlist.WatchlistFragment">
 
-    <Toolbar
-        android:id="@+id/toolbar"
+    <TextView
+        android:id="@+id/tv_watchlist"
+        style="@style/title_big"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:title="Watchlist"
-        android:titleTextAppearance="@style/Title1"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginVertical="@dimen/_16sdp"
+        android:text="Watchlist"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_watchlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
+        android:layout_marginTop="@dimen/_8sdp"
         tools:listitem="@layout/item_movie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/tv_watchlist" />
 </androidx.constraintlayout.widget.ConstraintLayout>
