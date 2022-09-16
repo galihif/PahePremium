@@ -17,4 +17,7 @@
     <string name="showing_result">Showing Result for "%1$s"</string>
     <string name="empty_search">We couldn\'t show the result. Please try with different keyword</string>
     <string name="discover">Discover your favourite movie</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="see_more">See more</string>
+    <string name="popular">Popular</string>
 </resources>

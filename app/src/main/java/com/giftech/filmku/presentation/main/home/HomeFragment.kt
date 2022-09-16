@@ -1,13 +1,10 @@
 package com.giftech.filmku.presentation.main.home
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.giftech.filmku.core.utils.Resource
@@ -18,12 +15,11 @@ import com.giftech.filmku.presentation.main.home.adapter.PopularAdapter
 import com.giftech.filmku.utils.Category
 import com.giftech.filmku.utils.Constant.MOVIE_ID
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.WithFragmentBindings
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private val viewModel:HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
     private lateinit var nowPlayingAdapter: NowPlayingAdapter
     private lateinit var popularAdapter: PopularAdapter
 
@@ -44,40 +40,33 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(activity != null){
+        if (activity != null) {
             setupAdapter()
             getData()
         }
     }
 
-    private fun setButtonClick() {
-        binding.btnWatchlist.setOnClickListener {
-            val uri = Uri.parse("filmku://watchlist")
-            startActivity(Intent(Intent.ACTION_VIEW, uri))
-        }
-    }
-
     private fun getData() {
-        viewModel.nowPlaying.observe(viewLifecycleOwner){
-            when(it){
+        viewModel.nowPlaying.observe(viewLifecycleOwner) {
+            when (it) {
                 is Resource.Error -> {
-                    showLoading(false,Category.NOW_PLAYING)
+                    showLoading(false, Category.NOW_PLAYING)
                 }
                 is Resource.Loading -> showLoading(true, Category.NOW_PLAYING)
                 is Resource.Success -> {
-                    showLoading(false,Category.NOW_PLAYING)
+                    showLoading(false, Category.NOW_PLAYING)
                     nowPlayingAdapter.submitList(it.data)
                 }
             }
         }
-        viewModel.popular.observe(viewLifecycleOwner){
-            when(it){
+        viewModel.popular.observe(viewLifecycleOwner) {
+            when (it) {
                 is Resource.Error -> {
-                    showLoading(false,Category.POPULAR)
+                    showLoading(false, Category.POPULAR)
                 }
                 is Resource.Loading -> showLoading(true, Category.POPULAR)
                 is Resource.Success -> {
-                    showLoading(false,Category.POPULAR)
+                    showLoading(false, Category.POPULAR)
                     popularAdapter.submitList(it.data)
                 }
             }
@@ -85,7 +74,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun showLoading(isLoading: Boolean, category: Category) {
-        when(category){
+        when (category) {
             Category.NOW_PLAYING -> {
                 binding.nowPlayingLoad.root.visibility = if (isLoading) View.VISIBLE else View.GONE
             }
@@ -103,7 +92,7 @@ class HomeFragment : Fragment() {
         }
         binding.nowPlaying.rvNowPlaying.adapter = nowPlayingAdapter
 
-        popularAdapter = PopularAdapter{ movie ->
+        popularAdapter = PopularAdapter { movie ->
             val intent = Intent(activity, DetailActivity::class.java)
             intent.putExtra(MOVIE_ID, movie.id)
             startActivity(intent)
