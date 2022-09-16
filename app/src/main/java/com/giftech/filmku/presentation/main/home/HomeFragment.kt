@@ -47,7 +47,6 @@ class HomeFragment : Fragment() {
         if(activity != null){
             setupAdapter()
             getData()
-            setButtonClick()
         }
     }
 

@@ -17,4 +17,11 @@
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 
+    <fragment
+        android:id="@+id/navigation_watchlist"
+        android:name="com.giftech.filmku.presentation.main.watchlist.WatchlistFragment"
+        android:label="@string/title_watchlist"
+        tools:layout="@layout/fragment_watchlist" />
+
+
 </navigation>
