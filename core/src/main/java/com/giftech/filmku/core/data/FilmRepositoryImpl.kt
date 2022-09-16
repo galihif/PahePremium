@@ -15,19 +15,19 @@ class FilmRepositoryImpl @Inject constructor(
     private val local:LocalDataSource,
     private val remote:RemoteDataSource
 ):FilmRepository {
-    override fun getTest(): String {
-        return remote.getTest()
-    }
-
+    //Home
     override fun getNowPlaying(): Flow<Resource<List<Movie>>> = remote.getNowPlaying()
     override fun getPopular(): Flow<Resource<List<Movie>>> = remote.getPopular()
     override fun getMovie(movieId: Int): Flow<Resource<Movie>> = remote.getMovieDetail(movieId)
-    override suspend fun addMovieToWatchList(movie: Movie) {
-        local.insertMovie(domainToEntity(movie))
-    }
 
+    //Search
+    override fun getSearchResult(query: String): Flow<Resource<List<Movie>>> = remote.getSearchResult(query)
+
+    //Detail
+    override suspend fun addMovieToWatchList(movie: Movie) = local.insertMovie(domainToEntity(movie))
     override suspend fun isMovieInWatchList(movieId: Int):Boolean = local.checkIsMovieSaved(movieId)
     override suspend fun removeMovieFromWatchlist(movieId: Int) = local.deleteMovieFromWatchList(movieId)
 
+    //Watchlist
     override fun getWatchlist(): Flow<List<Movie>> = local.getAllSavedMovie().map { entitiesToDomain(it) }
 }

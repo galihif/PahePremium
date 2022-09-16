@@ -7,10 +7,9 @@ import android.view.View
 import androidx.activity.viewModels
 import com.giftech.filmku.di.WatchlistModuleDependencies
 import com.giftech.filmku.presentation.detail.DetailActivity
-import com.giftech.filmku.presentation.main.watchlist.adapter.WatchListAdapter
+import com.giftech.filmku.watchlist.adapter.WatchListAdapter
 import com.giftech.filmku.utils.Constant
 import com.giftech.filmku.watchlist.databinding.ActivityWatchlistBinding
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 

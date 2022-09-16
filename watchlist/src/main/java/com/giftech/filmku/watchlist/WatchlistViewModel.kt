@@ -12,6 +12,5 @@ import javax.inject.Inject
 class WatchlistViewModel (
     useCase: FilmUseCase
 ): ViewModel() {
-    val msg = useCase.getTest()
     val watchlist = useCase.getWatchlist().asLiveData()
 }

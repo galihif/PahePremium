@@ -1,24 +1,20 @@
-package com.giftech.filmku.presentation.main.home.adapter
+package com.giftech.filmku.presentation.main.search.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.widget.TextViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.giftech.filmku.R
 import com.giftech.filmku.core.domain.model.Movie
 import com.giftech.filmku.databinding.ItemMovieBinding
 import com.giftech.filmku.utils.AppUtils
-import com.giftech.filmku.utils.AppUtils.createGenreChip
 import com.giftech.filmku.utils.AppUtils.loadMovieImage
 
-class PopularAdapter(
+class SearchResultAdapter(
     private val onClickItem:(Movie) -> Unit
-): ListAdapter<Movie, PopularAdapter.PopularViewHolder>(DIFF_CALLBACK) {
+): ListAdapter<Movie, SearchResultAdapter.SearchResultViewHolder>(DIFF_CALLBACK) {
 
-    inner class PopularViewHolder(private val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class SearchResultViewHolder(private val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: Movie){
             with(binding){
                 ivPoster.loadMovieImage(item.poster)
@@ -27,7 +23,7 @@ class PopularAdapter(
 
                 containerGenre.removeAllViews()
                 item.genres.forEach {
-                    containerGenre.addView(createGenreChip(itemView.context, it))
+                    containerGenre.addView(AppUtils.createGenreChip(itemView.context, it))
                 }
 
                 itemView.setOnClickListener { onClickItem(item) }
@@ -35,13 +31,13 @@ class PopularAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultViewHolder {
         val binding =
             ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PopularViewHolder(binding)
+        return SearchResultViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchResultViewHolder, position: Int) {
         val item = getItem(position)
         if(item!=null){
             holder.bind(item)
