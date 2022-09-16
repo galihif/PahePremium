@@ -16,4 +16,5 @@
     <string name="search_movie">Search Movie</string>
     <string name="showing_result">Showing Result for "%1$s"</string>
     <string name="empty_search">We couldn\'t show the result. Please try with different keyword</string>
+    <string name="discover">Discover your favourite movie</string>
 </resources>

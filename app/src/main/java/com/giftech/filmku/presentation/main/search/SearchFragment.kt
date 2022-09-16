@@ -75,8 +75,6 @@ class SearchFragment : Fragment() {
                 is Resource.Success -> {
                     showLoading(false)
                     showEmpty(it.data.isEmpty())
-                    Log.d("galih", "getMovieResult: ${it.data.size}")
-                    Log.d("galih", "getMovieResult: ${it.data.isEmpty()}")
                     searchResultAdapter.submitList(it.data)
                 }
             }
@@ -85,7 +83,6 @@ class SearchFragment : Fragment() {
 
     private fun showEmpty(isEmpty: Boolean = false) {
         binding.empty.root.visibility = if (isEmpty) View.VISIBLE else View.GONE
-        Log.d("galih", "showEmpty: $isEmpty")
     }
 
     private fun initAdapter() {
@@ -102,9 +99,14 @@ class SearchFragment : Fragment() {
             if (actionId == EditorInfo.IME_ACTION_SEARCH){
                 viewModel.setKeyword(textView.text.toString())
                 clearEditTextFocus()
+                hideDiscover()
             }
             true
         }
+    }
+
+    private fun hideDiscover() {
+        binding.discover.root.visibility = View.GONE
     }
 
     private fun showLoading(isLoading:Boolean){

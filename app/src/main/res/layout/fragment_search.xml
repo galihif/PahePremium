@@ -41,8 +41,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
-        tools:listitem="@layout/item_movie"/>
+        android:layout_marginTop="@dimen/_8sdp"/>
 
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -66,6 +65,13 @@
         </LinearLayout>
 
     </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <include
+        android:layout_margin="@dimen/_24sdp"
+        android:id="@+id/discover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_discover"/>
 
     <include
         android:layout_width="wrap_content"
